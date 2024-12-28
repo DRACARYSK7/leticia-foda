@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escolha Sim ou Não</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Você quer continuar?</h1>
+    <button class="choice" id="sim">Sim</button>
+    <button class="choice" id="nao">Não</button>
+    <p id="resposta"></p>
+  </div>
+
+  <script>
+    // Lógica para mostrar a resposta após a escolha
+    document.getElementById('sim').addEventListener('click', function() {
+      document.getElementById('resposta').textContent = 'Você escolheu Sim!';
+    });
+
+    // Lógica para mover o botão "Não"
+    document.getElementById('nao').addEventListener('mouseenter', function() {
+      var button = document.getElementById('nao');
+      var maxWidth = window.innerWidth - button.offsetWidth;  // Calcula a largura máxima para o movimento
+      var maxHeight = window.innerHeight - button.offsetHeight;  // Calcula a altura máxima para o movimento
+
+      // Move o botão "Não" para uma posição aleatória
+      var randomX = Math.floor(Math.random() * maxWidth);
+      var randomY = Math.floor(Math.random() * maxHeight);
+
+      button.style.position = "absolute";
+      button.style.left = randomX + "px";
+      button.style.top = randomY + "px";
+    });
+
+    // Lógica para a opção "Não"
+    document.getElementById('nao').addEventListener('click', function() {
+      document.getElementById('resposta').textContent = 'Você escolheu Não!';
+    });
+  </script>
+</body>
+</html>
